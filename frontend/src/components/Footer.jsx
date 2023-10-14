@@ -2,12 +2,15 @@ import { Link } from "react-router-dom";
 import insta from "../constants/images/insta.jpeg";
 import facebook from "../constants/images/facebook.png";
 import twitter from "../constants/images/twitter.png";
+// import { FacebookIcon } from "react-social-icons";
 
 const Footer = () => {
   return (
-    <div className="flex-col bg-gray-200">
-      <div>1</div>
-      <div className="flex justify-between p-12 ">
+    <div className="flex-col bg-gray-200 px-12">
+      <div className=" mb-6 p-4">
+        <img src={facebook} className="w-20 h-20" alt="" />
+      </div>
+      <div className="flex justify-between  ">
         <div className="flex gap-12 ">
           <div className="mr-0    lg:block">
             <h2 className="mb-2 text-2xl font-semibold text-black uppercase dark:text-white">
@@ -42,14 +45,14 @@ const Footer = () => {
             </h2>
             <ul className="text-gray-600 text-xl dark:text-gray-400 font-medium">
               <li className="mb-2">
-                <Link to="/discord-server" className="hover:underline">
+                <Link to="/registerfortradies" className="hover:underline">
                   Register for tradies
                 </Link>
               </li>
             </ul>
           </div>
 
-          <div className="mr-0 hidden    lg:block">
+          <div className="ml-2 hidden    lg:block">
             <h2 className="mb-2 text-2xl font-semibold text-black uppercase dark:text-white">
               For Customers
             </h2>
@@ -81,7 +84,7 @@ const Footer = () => {
         <div className="hidden lg:block flex-col  justify-between">
           <div className="text-center">
             <div className="text-black text-3xl">Social Media</div>
-            <div className="flex justify-center gap-4">
+            <div className="sm:flex justify-center gap-4 ">
               <Link to="/instagram">
                 <img src={insta} className="w-12 rounded-full" alt="" />
               </Link>
@@ -133,6 +136,14 @@ const Footer = () => {
             </Link>
           </div>
         </div>
+      </div>
+      <div className="mt-4">
+        <div className="underline border border-gray-400 shadow-2xl  text-black"></div>
+        <footer className="footer footer-center p-2 mt-6 bg-base-300 text-lg text-black">
+          <aside>
+            <p>Copyright © 2023 Tradies Company - All right reserved </p>
+          </aside>
+        </footer>
       </div>
     </div>
   );
