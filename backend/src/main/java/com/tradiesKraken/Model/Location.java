@@ -33,4 +33,12 @@ public class Location {
     @JsonIgnore
     private List<ServiceReq> services = new ArrayList<>();
 
+    @Override
+    public String toString() {
+        return "Location{" +
+                "locationId=" + locationId +
+                ", longitude='" + longitude + ", latitude : " + latitude +
+                '}';
+    }
+
 }

@@ -17,4 +17,6 @@ public interface UserService {
     public UserDto viewByEmail(String email);
 
     public UserDto update(UserDto userDto, String userId);
+
+    public List<UserDto> viewByRole(String role);
 }

@@ -3,10 +3,11 @@ package com.tradiesKraken.Service;
 import java.util.List;
 
 import com.tradiesKraken.ModelDto.ReviewDto;
+import com.tradiesKraken.Payload.ReviewRequest;
 
 public interface ReviewService {
 
-    public ReviewDto create(ReviewDto reviewDto);
+    public ReviewDto create(ReviewRequest reviewRequest);
 
     public ReviewDto viewById(int reviewId);
 

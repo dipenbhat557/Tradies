@@ -14,6 +14,6 @@ public interface WorkService {
 
     public void delete(int workId);
 
-    public List<WorkDto> viewByCategory(int categoryid);
+    public List<WorkDto> viewBySubCategory(int subCategoryid);
 
 }

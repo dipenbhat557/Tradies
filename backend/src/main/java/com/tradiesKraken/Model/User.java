@@ -22,6 +22,7 @@ import jakarta.persistence.PrePersist;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -55,6 +56,10 @@ public class User implements UserDetails {
     private String aadharNo;
 
     private boolean active;
+
+    private double rating;
+
+    private int noOfRatings;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
@@ -111,4 +116,12 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", phone=" + phone + ", imageUrl="
+                + imageUrl + ", createdAt=" + createdAt + ", role=" + role + ", aadharNo=" + aadharNo + ", active="
+                + active + "]";
+    }
+
 }
