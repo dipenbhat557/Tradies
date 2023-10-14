@@ -3,11 +3,9 @@ import { Provider } from "react-redux";
 
 const App = () => {
   return (
-   <Provider>
-     <Body />
-
-   </Provider>>
-   
+    <Provider>
+      <Body />
+    </Provider>
   );
 };
 
