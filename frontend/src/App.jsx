@@ -7,12 +7,13 @@ import {
 } from "react-router-dom";
 // import Hero from "./components/Hero";
 import Home from "./Pages/Home";
+import ServicePage from "./Pages/ServicePage";
 
 const App = () => {
   return (
     <div>
       <BrowserRouter>
-        <Home />
+        <ServicePage />
       </BrowserRouter>
     </div>
   );
