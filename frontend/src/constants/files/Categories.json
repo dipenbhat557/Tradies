@@ -1,0 +1,64 @@
+{
+  "categories": [
+    {
+      "name": "Carpenter",
+      "imagePath": "https://www.hindustantimes.com/ht-img/img/2023/10/13/550x309/Shubho_Mahalaya_2_1697183593586_1697183598349.jpg",
+      "categoryId": 1,
+      "description": "Lorem Epsum"
+    },
+    {
+      "name": "Plumber",
+      "imagePath": "https://www.hindustantimes.com/ht-img/img/2023/10/13/550x309/Shubho_Mahalaya_2_1697183593586_1697183598349.jpg",
+      "categoryId": 2,
+      "description": "Lorem Epsum"
+    },
+    {
+      "name": "Electrician",
+      "imagePath": "https://www.hindustantimes.com/ht-img/img/2023/10/13/550x309/Shubho_Mahalaya_2_1697183593586_1697183598349.jpg",
+      "categoryId": 3,
+      "description": "Lorem Epsum"
+    },
+    {
+      "name": "HouseKeeper",
+      "imagePath": "https://www.hindustantimes.com/ht-img/img/2023/10/13/550x309/Shubho_Mahalaya_2_1697183593586_1697183598349.jpg",
+      "categoryId": 4,
+      "description": "Lorem Epsum"
+    },
+    {
+      "name": "Pet feeder",
+      "imagePath": "https://www.hindustantimes.com/ht-img/img/2023/10/13/550x309/Shubho_Mahalaya_2_1697183593586_1697183598349.jpg",
+      "categoryId": 5,
+      "description": "Lorem Epsum"
+    },
+    {
+      "name": "Gardner",
+      "imagePath": "https://www.hindustantimes.com/ht-img/img/2023/10/13/550x309/Shubho_Mahalaya_2_1697183593586_1697183598349.jpg",
+      "categoryId": 6,
+      "description": "Lorem Epsum"
+    },
+    {
+      "name": "Gardner",
+      "imagePath": "https://www.hindustantimes.com/ht-img/img/2023/10/13/550x309/Shubho_Mahalaya_2_1697183593586_1697183598349.jpg",
+      "categoryId": 7,
+      "description": "Lorem Epsum"
+    },
+    {
+      "name": "Gardner",
+      "imagePath": "https://www.hindustantimes.com/ht-img/img/2023/10/13/550x309/Shubho_Mahalaya_2_1697183593586_1697183598349.jpg",
+      "categoryId": 8,
+      "description": "Lorem Epsum"
+    },
+    {
+      "name": "Gardner",
+      "imagePath": "https://www.hindustantimes.com/ht-img/img/2023/10/13/550x309/Shubho_Mahalaya_2_1697183593586_1697183598349.jpg",
+      "categoryId": 9,
+      "description": "Lorem Epsum"
+    },
+    {
+      "name": "Gardner",
+      "imagePath": "https://www.hindustantimes.com/ht-img/img/2023/10/13/550x309/Shubho_Mahalaya_2_1697183593586_1697183598349.jpg",
+      "categoryId": 10,
+      "description": "Lorem Epsum"
+    }
+  ]
+}

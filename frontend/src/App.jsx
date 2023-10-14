@@ -1,19 +1,10 @@
-// import Footer from "./components/Footer";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  BrowserRouter,
-} from "react-router-dom";
-// import Hero from "./components/Hero";
-import Home from "./Pages/Home";
+
+import Body from "./components/Body";
 
 const App = () => {
   return (
     <div>
-      <BrowserRouter>
-        <Home />
-      </BrowserRouter>
+      <Body />
     </div>
   );
 };

@@ -1,0 +1,7 @@
+{
+  "categoriesList": [
+    { "name": "HouseHold", "id": 1 },
+    { "name": "Cleaning and Pest Control Service", "id": 2 },
+    { "name": "AC & Appliances Repair Service" }
+  ]
+}
