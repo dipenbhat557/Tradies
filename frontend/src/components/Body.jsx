@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Login from "./Login.jsx";
-import Register from "./Regsiter.jsx";
+import Register from "./Register.jsx";
 import Home from "../Pages/Home.jsx";
 
 function Body() {
