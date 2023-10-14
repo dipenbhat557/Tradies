@@ -1,49 +1,62 @@
-import React, { useState } from "react";
-import { Transition } from "@headlessui/react";
+// import { useState } from "react";
+// import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import logo from "../constants/images/logo.png";
 
-function Header2() {
-  const [isOpen, setIsOpen] = useState(false);
+function Header() {
+  //  const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
-      <nav className="bg-gray-700   p-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+      <nav className="bg-gray-100   p-4">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex  justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <Link to="/">
-                  <h2 className="h-8 w-8 text-white font-bold text-4xl">
-                    Tradies
-                  </h2>
+                  <img className="h-12 w-32" src={logo} alt="Tradies" />
                 </Link>
-                {/* <img className="h-8 w-8" src="" alt="Tradies" /> */}
+                {/**/}
               </div>
               <div className="hidden md:block">
-                <div className="mx-48 flex items-baseline space-x-4">
-                  <select className="py-5 px-16 rounded-lg ">
-                    <option>Bangalore</option>
+                <div className="mx-12 flex items-baseline space-x-4">
+                  <Link to="/about">
+                    <h2 className="text-black-300  ml-32 hover:bg-gray-500 hover:text-white px-3 py-2  rounded-md text-lg font-medium">
+                      About
+                    </h2>
+                  </Link>
+                  <Link to="/category">
+                    <h2 className="text-black-300  hover:bg-gray-500 hover:text-white px-3 py-2  ml-4 rounded-md text-lg font-medium">
+                      Category
+                    </h2>
+                  </Link>
+
+                  <Link to="/cart">
+                    <h2 className="text-black-300  hover:bg-gray-500 hover:text-white px-3 py-3 ml-4  rounded-md text-lg font-medium ">
+                      Cart
+                    </h2>
+                  </Link>
+                  <section className="mx-8">
+                  <select className="py-5 px-16 border mx-8 rounded-lg ">
+                    <option className="p-20">Bangalore</option>
                     <option>Chennai</option>
                     <option>Delhi</option>
                   </select>
+                  </section>
 
                   <SearchBar />
 
                   <Link to="/login">
-                    <h2 className="text-gray-300  hover:bg-gray-700 hover:text-white px-3 py-2 ml-56 rounded-md text-lg font-medium">
-                      Login
-                    </h2>
-                  </Link>
-
-                  <Link to="/register">
-                    <h2 className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 ml-12 rounded-md text-lg font-medium">
-                      Register
+                    <h2 className="text-black-300  hover:bg-gray-500 hover:text-white px-3 py-3 ml-12 rounded-md text-lg font-medium border">
+                      Login/Signup
                     </h2>
                   </Link>
                 </div>
               </div>
             </div>
-            <div className="-mr-2 flex md:hidden">
+          </div>
+        </div>
+        {/* <div className="-mr-2 flex md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
@@ -124,10 +137,10 @@ function Header2() {
               </div>
             </div>
           )}
-        </Transition>
+        </Transition> */}
       </nav>
     </div>
   );
 }
 
-export default Header2;
+export default Header;

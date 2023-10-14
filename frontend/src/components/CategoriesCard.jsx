@@ -32,7 +32,7 @@ function CategoriesCard() {
           return (
             <div
               key={category.id}
-              className=" flex-shrink-0 w-72 no-scrollbar  "
+              className="bg-slate-200 flex-shrink-0 w-72 no-scrollbar  rounded-xl "
             >
               <img src={category.imagePath} className="p-4 rounded-lg " />
               <h2 className="font-bold text-xl p-4  px-20  ">

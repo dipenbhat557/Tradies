@@ -1,6 +1,7 @@
-import React from "react";
 import StarIcon from "@mui/icons-material/Star";
 import { Link } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
 const ServiceCategory = () => {
   const serviceData = [
     {
@@ -40,56 +41,62 @@ const ServiceCategory = () => {
     },
   ];
   return (
-    <div className="px-12 py-2">
-      <div className="flex justify-between py-8 ">
-        <div className="text-center mx-auto my-auto">
-          <ul>
-            <li>
-              <h1 className="text-6xl font-semibold">Carpenter</h1>
-            </li>
-            <li className="text-center flex justify-center p-4 ">
-              <StarIcon />
-              <h1 className="text-2xl">4.5 11k</h1>
-            </li>
+    <>
+      <Header />
+      <div className="px-12 py-2">
+        <div className="flex justify-between py-8 ">
+          <div className="text-center mx-auto my-auto">
+            <ul>
+              <li>
+                <h1 className="text-6xl font-semibold">Carpenter</h1>
+              </li>
+              <li className="text-center flex justify-center p-4 ">
+                <StarIcon />
+                <h1 className="text-2xl">4.5 11k</h1>
+              </li>
 
-            <li>
-              <h1 className="text-center text-2xl">INR 11.2K</h1>
-            </li>
-          </ul>
-        </div>
+              <li>
+                <h1 className="text-center text-2xl">INR 11.2K</h1>
+              </li>
+            </ul>
+          </div>
 
-        <div>
-          <img
-            className="h-96 w-full object-cover object-center"
-            src="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-            alt="nature image"
-          />
+          <div>
+            <img
+              className="h-96 w-full object-cover object-center"
+              src="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
+              alt="nature image"
+            />
+          </div>
         </div>
-      </div>
-      <div className="w-max border-l-2 border-t-2 p-6 py-8 mb-7  border-l-gray-300 border-b-gray-300">
-        <div>
-          <h1 className="text-black text-xl font-semibold">Select a service</h1>
-        </div>
+        <div className="w-max border-l-2 border-t-2 p-6 py-8 mb-7  border-l-gray-300 border-b-gray-300">
+          <div>
+            <h1 className="text-black text-xl font-semibold">
+              Select a service
+            </h1>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center">
-          {serviceData.map((service) => (
-            <Link to="#">
-              <div
-                className="card w-96 h-60 bg-base-100 shadow-xl hover:shadow-gray-300"
-                key={service.id}
-              >
-                <figure>
-                  <img src={service.imgUrl} alt="Shoes" className="h-30" />
-                </figure>
-                <div className="card-body mx-auto">
-                  <h2 className="card-title">{service.name}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center">
+            {serviceData.map((service) => (
+              <Link key={service.id} to="/">
+                <div
+                  key={service.id}
+                  className="card w-96 h-60 bg-base-100 shadow-xl hover:shadow-gray-300"
+                >
+                  <figure>
+                    <img src={service.imgUrl} alt="Shoes" className="h-30" />
+                  </figure>
+                  <div className="card-body mx-auto">
+                    <h2 className="card-title">{service.name}</h2>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 
