@@ -23,6 +23,10 @@ public class UserDto {
 
     private boolean active;
 
+    private double rating;
+
+    private int noOfRatings;
+
     private String role;
 
     private String location;

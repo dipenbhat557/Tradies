@@ -14,6 +14,6 @@ public class CategoryDto {
 
     private String categoryImg;
 
-    private List<Integer> workIds = new ArrayList<>();
+    private List<Integer> subCategoryIds = new ArrayList<>();
 
 }

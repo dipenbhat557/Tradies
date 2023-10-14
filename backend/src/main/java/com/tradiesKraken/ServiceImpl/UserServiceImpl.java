@@ -46,6 +46,8 @@ public class UserServiceImpl implements UserService {
         user.setRole(userRequest.getRole());
         user.setAadharNo(userRequest.getAadharNo());
         user.setActive(true);
+        user.setRating(0);
+        user.setNoOfRatings(0);
 
         Location location = new Location();
         location.setLatitude("13434545134");
@@ -54,6 +56,8 @@ public class UserServiceImpl implements UserService {
         location = this.locationRepository.save(location);
 
         user.setLocation(location);
+
+        user = this.userRepository.save(user);
 
         return this.modelToDto.user(user);
 
@@ -103,6 +107,13 @@ public class UserServiceImpl implements UserService {
         this.userRepository.save(oldUser);
 
         return this.modelToDto.user(oldUser);
+    }
+
+    @Override
+    public List<UserDto> viewByRole(String role) {
+        List<User> users = this.userRepository.findByRole(role);
+        List<UserDto> userDtos = users.stream().map(user -> this.modelToDto.user(user)).collect(Collectors.toList());
+        return userDtos;
     }
 
 }

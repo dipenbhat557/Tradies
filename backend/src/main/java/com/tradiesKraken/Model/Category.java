@@ -27,6 +27,6 @@ public class Category {
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<Work> works = new ArrayList<>();
+    private List<SubCategory> subCategories = new ArrayList<>();
 
 }
