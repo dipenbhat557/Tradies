@@ -14,8 +14,6 @@ const SignupForm = () => {
         <img src={logo} alt="logo" className="mx-auto w-40" />
       </Link>
       <div className="max-w-md mx-auto my-8 bg-gray-10 rounded-lg">
-        <h2 className="text-4xl font-semibold text-center mb-4">Signup </h2>
-
         <Formik
           initialValues={{
             name: "",
@@ -52,6 +50,7 @@ const SignupForm = () => {
           }}
         >
           <Form className="bg-gray-100 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <h2 className="text-4xl font-semibold text-center mb-4">Signup </h2>
             <div className="mb-6">
               <label
                 htmlFor="name"
