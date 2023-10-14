@@ -1,29 +1,14 @@
-<<<<<<< HEAD
-// import Footer from "./components/Footer";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  BrowserRouter,
-} from "react-router-dom";
-// import Hero from "./components/Hero";
-import Home from "./Pages/Home";
-import ServicePage from "./Pages/ServicePage";
-=======
+import { BrowserRouter as Router, BrowserRouter } from "react-router-dom";
+import Login from "./Pages/Login";
 
-import Body from "./components/Body";
->>>>>>> eecd755b8e3c70157e25961583a5824c6b7117f1
+import Signup from "./Pages/Signup";
 
 const App = () => {
   return (
     <div>
-<<<<<<< HEAD
       <BrowserRouter>
-        <ServicePage />
+        <Signup />
       </BrowserRouter>
-=======
-      <Body />
->>>>>>> eecd755b8e3c70157e25961583a5824c6b7117f1
     </div>
   );
 };
