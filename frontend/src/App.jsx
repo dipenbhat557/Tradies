@@ -1,3 +1,4 @@
+
 import Body from "./components/Body";
 import { Provider } from "react-redux";
 
@@ -6,6 +7,7 @@ const App = () => {
     <Provider>
       <Body />
     </Provider>
+
   );
 };
 

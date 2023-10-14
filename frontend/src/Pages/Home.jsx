@@ -1,5 +1,7 @@
+
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer";
+
 import Hero from "../components/Hero.jsx";
 
 import CategoriesList from "../components/CategoriesList.jsx";
