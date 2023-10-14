@@ -27,7 +27,7 @@ public class Work {
     private String workImg;
 
     @ManyToOne
-    private Category category;
+    private SubCategory subCategory;
 
     @OneToMany(mappedBy = "work", cascade = CascadeType.ALL)
     @JsonIgnore

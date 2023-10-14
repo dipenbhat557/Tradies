@@ -19,12 +19,14 @@ import com.tradiesKraken.Exception.BadRequestException;
 import com.tradiesKraken.Exception.ResourceNotFoundException;
 import com.tradiesKraken.Model.User;
 import com.tradiesKraken.ModelDto.RefreshTokenDto;
+import com.tradiesKraken.ModelDto.UserDto;
 import com.tradiesKraken.Payload.JwtRequest;
 import com.tradiesKraken.Payload.JwtResponse;
 import com.tradiesKraken.Payload.RefreshTokenRequest;
 import com.tradiesKraken.Payload.SignUpRequest;
 import com.tradiesKraken.Repository.UserRepository;
 import com.tradiesKraken.ServiceImpl.RefreshTokenServiceImpl;
+import com.tradiesKraken.ServiceImpl.UserServiceImpl;
 
 import jakarta.validation.Valid;
 
@@ -43,6 +45,9 @@ public class AuthController {
 
     @Autowired
     private RefreshTokenServiceImpl refreshTokenService;
+
+    @Autowired
+    private UserServiceImpl userService;
 
     @Autowired
     private UserRepository userRepository;
@@ -106,23 +111,11 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
+    public ResponseEntity<UserDto> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
         if (userRepository.existsByEmail(signUpRequest.getEmail())) {
             throw new BadRequestException("Email address already in use.");
         }
 
-        // Create a new user account
-        User user = new User();
-        user.setName(signUpRequest.getName());
-        user.setEmail(signUpRequest.getEmail());
-        user.setPassword(signUpRequest.getPassword());
-
-        // Encode the user's password
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-
-        // Save the user to the database
-        User result = userRepository.save(user);
-
-        return new ResponseEntity<>("Registered Successfully", HttpStatus.CREATED);
+        return new ResponseEntity<UserDto>(this.userService.create(signUpRequest), HttpStatus.CREATED);
     }
 }

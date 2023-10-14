@@ -3,10 +3,11 @@ package com.tradiesKraken.Service;
 import java.util.List;
 
 import com.tradiesKraken.ModelDto.ServiceReqDto;
+import com.tradiesKraken.Payload.ServiceReqRequest;
 
 public interface ServiceReqService {
 
-    public ServiceReqDto create(ServiceReqDto serviceReqDto);
+    public ServiceReqDto create(ServiceReqRequest serviceReqRequest, String username);
 
     public List<ServiceReqDto> viewAll();
 
@@ -14,7 +15,10 @@ public interface ServiceReqService {
 
     public void delete(int serviceReqId);
 
-    public List<ServiceReqDto> viewByAccepter(int userId);
+    public ServiceReqDto acceptedByUser(int serviceId, String userId);
 
-    public List<ServiceReqDto> viewByReqUser(int userId);
+    public List<ServiceReqDto> viewByAccepter(String userId);
+
+    public List<ServiceReqDto> viewByReqUser(String userId);
+
 }

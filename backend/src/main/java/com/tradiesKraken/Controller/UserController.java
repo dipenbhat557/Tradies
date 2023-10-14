@@ -1,5 +1,6 @@
 package com.tradiesKraken.Controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class UserController {
 
     private String path = "src/user/profiles";
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<List<UserDto>> viewAllUsers() {
         return new ResponseEntity<List<UserDto>>(this.userService.viewAll(), HttpStatus.OK);
     }
@@ -47,9 +48,9 @@ public class UserController {
         return new ResponseEntity<String>("The user is successfully deleted", HttpStatus.OK);
     }
 
-    @GetMapping("/{email}")
-    public ResponseEntity<UserDto> viewByEmail(@PathVariable String email) {
-        return new ResponseEntity<UserDto>(this.userService.viewByEmail(email), HttpStatus.OK);
+    @GetMapping("/me")
+    public ResponseEntity<UserDto> viewByEmail(Principal principal) {
+        return new ResponseEntity<UserDto>(this.userService.viewByEmail(principal.getName()), HttpStatus.OK);
     }
 
     @PutMapping("/{userId}")
@@ -57,7 +58,7 @@ public class UserController {
         return new ResponseEntity<UserDto>(this.userService.update(userDto, userId), HttpStatus.OK);
     }
 
-    @PostMapping("/profile/{userId}")
+    @PutMapping("/profile/{userId}")
     public ResponseEntity<UserDto> changeProfile(@PathVariable String userId, @RequestBody MultipartFile file) {
         UserDto user = this.userService.viewById(userId);
 

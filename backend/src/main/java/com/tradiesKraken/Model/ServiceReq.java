@@ -1,6 +1,7 @@
 package com.tradiesKraken.Model;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,11 +21,7 @@ public class ServiceReq {
 
     private String status;
 
-    private String serviceImg;
-
-    private Timestamp datetime;
-
-    private String description;
+    private Date datetime;
 
     @ManyToOne
     private Location location;
