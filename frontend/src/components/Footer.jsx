@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import insta from "../constants/images/insta.jpeg";
 import facebook from "../constants/images/facebook.png";
 import twitter from "../constants/images/twitter.png";
+import { FacebookIcon } from "react-social-icons";
 
 const Footer = () => {
   return (
@@ -84,7 +85,8 @@ const Footer = () => {
             <div className="text-black text-3xl">Social Media</div>
             <div className="flex justify-center gap-4">
               <Link to="/instagram">
-                <img src={insta} className="w-12 rounded-full" alt="" />
+                {/* <img src={insta} className="w-12 rounded-full" alt="" /> */}
+                <FacebookIcon />
               </Link>
               <Link to="/facebook">
                 <img src={facebook} className="w-12 rounded-full" alt="" />
