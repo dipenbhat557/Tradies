@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import insta from "../constants/images/insta.jpeg";
 import facebook from "../constants/images/facebook.png";
