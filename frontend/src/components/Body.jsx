@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Login from "./Login.jsx";
 import Register from "./Register.jsx";
 import Home from "../Pages/Home.jsx";
+import Category from "../components/ServiceCategory.jsx"
 
 function Body() {
   const appRouter = createBrowserRouter([
@@ -12,6 +13,10 @@ function Body() {
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path:"/category",
+      element:<Category/>
     },
     {
       path: "/register",

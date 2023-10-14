@@ -1,4 +1,3 @@
-import React from "react";
 import female from "../constants/images/female.jpg";
 const Hero = () => {
   const cardData = [
@@ -70,8 +69,8 @@ const Hero = () => {
             </button>
           </div>
 
-          <div class="hidden lg:mt-0 lg:col-span-5 lg:flex  h-max">
-            <img src={female} alt="mockup" className="rounded-xl" />
+          <div className="hidden lg:mt-0 lg:col-span-5 lg:flex w-full h-max">
+            <img src={female} alt="mockup" className="rounded-xl " />
           </div>
         </div>
       </section>

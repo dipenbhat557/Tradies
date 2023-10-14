@@ -1,15 +1,13 @@
-import { BrowserRouter as Router, BrowserRouter } from "react-router-dom";
-import Login from "./Pages/Login";
 
-import Signup from "./Pages/Signup";
+import Body from "./components/Body";
+import { Provider } from "react-redux";
 
 const App = () => {
   return (
-    <div>
-      <BrowserRouter>
-        <Signup />
-      </BrowserRouter>
-    </div>
+    <Provider>
+      <Body />
+    </Provider>
+
   );
 };
 
