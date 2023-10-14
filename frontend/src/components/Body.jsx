@@ -6,11 +6,10 @@ import Home from "../Pages/Home.jsx";
 function Body() {
   const appRouter = createBrowserRouter([
     {
-        path: "/",
-        element: <Home />,
-      },
+      path: "/",
+      element: <Home />,
+    },
     {
-       
       path: "/login",
       element: <Login />,
     },
