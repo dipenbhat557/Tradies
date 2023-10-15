@@ -2,6 +2,7 @@ com\tradiesKraken\Repository\UserRepository.class
 com\tradiesKraken\Controller\ReviewController.class
 com\tradiesKraken\ModelDto\WorkDto.class
 com\tradiesKraken\Config\CustomUserDetailsService.class
+com\tradiesKraken\Config\SecurityConfig$1.class
 com\tradiesKraken\Repository\ServiceReqRepository.class
 com\tradiesKraken\Config\SpringDocConfig.class
 com\tradiesKraken\Controller\UserController.class

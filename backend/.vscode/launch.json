@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-TradiesKrakenApplication<tradiesKraken>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.tradiesKraken.TradiesKrakenApplication",
+      "projectName": "tradiesKraken",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

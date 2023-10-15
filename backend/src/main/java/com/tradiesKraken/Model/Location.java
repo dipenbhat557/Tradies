@@ -21,9 +21,9 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int locationId;
 
-    private String longitude;
+    private double longitude;
 
-    private String latitude;
+    private double latitude;
 
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore

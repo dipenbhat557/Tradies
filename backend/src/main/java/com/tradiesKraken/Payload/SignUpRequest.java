@@ -22,6 +22,8 @@ public class SignUpRequest {
 
     private String role;
 
+    private String zipCode;
+
     private String aadharNo;
 
     private String location;

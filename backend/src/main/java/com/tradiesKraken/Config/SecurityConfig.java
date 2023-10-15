@@ -2,6 +2,9 @@ package com.tradiesKraken.Config;
 
 import org.springframework.web.filter.CorsFilter;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -18,9 +21,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import jakarta.servlet.Filter;
+import jakarta.servlet.http.HttpServletRequest;
 
 @Configuration
 public class SecurityConfig {
@@ -59,6 +64,22 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.csrf(csrf -> csrf.disable())
+                .cors(cors -> cors.configurationSource(new CorsConfigurationSource() {
+                    @Override
+                    public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
+                        CorsConfiguration cfg = new CorsConfiguration();
+
+                        cfg.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
+                        cfg.setAllowedOriginPatterns(Arrays.asList("http://localhost:3000"));
+
+                        cfg.setAllowedMethods(Collections.singletonList("*"));
+                        cfg.setAllowedHeaders(Collections.singletonList("*"));
+                        cfg.setExposedHeaders(Arrays.asList("Authorization"));
+                        cfg.setMaxAge(3600L);
+
+                        return cfg;
+                    }
+                }))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(PUBLIC_URLS).permitAll()
                         .requestMatchers(HttpMethod.GET).permitAll()
@@ -80,26 +101,28 @@ public class SecurityConfig {
         return daoAuthenticationProvider;
     }
 
-    @Bean
-    FilterRegistrationBean<Filter> corsFilter() {
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration configuration = new CorsConfiguration();
+    // @Bean
+    // FilterRegistrationBean<Filter> corsFilter() {
+    // UrlBasedCorsConfigurationSource source = new
+    // UrlBasedCorsConfigurationSource();
+    // CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.setAllowCredentials(true);
-        configuration.addAllowedOrigin("*");
-        configuration.addAllowedHeader("Authorization");
-        configuration.addAllowedHeader("Context-Type");
-        configuration.addAllowedHeader("Accept");
-        configuration.addAllowedMethod("POST");
-        configuration.addAllowedMethod("GET");
-        configuration.addAllowedMethod("DELETE");
-        configuration.addAllowedMethod("PUT");
-        configuration.addAllowedMethod("OPTIONS");
-        configuration.setMaxAge(3600L);
-        source.registerCorsConfiguration("/**", configuration);
-        FilterRegistrationBean<Filter> bean = new FilterRegistrationBean<Filter>(new CorsFilter(source));
-        bean.setOrder(-110);
+    // configuration.setAllowCredentials(true);
+    // configuration.addAllowedOrigin("*");
+    // configuration.addAllowedHeader("Authorization");
+    // configuration.addAllowedHeader("Context-Type");
+    // configuration.addAllowedHeader("Accept");
+    // configuration.addAllowedMethod("POST");
+    // configuration.addAllowedMethod("GET");
+    // configuration.addAllowedMethod("DELETE");
+    // configuration.addAllowedMethod("PUT");
+    // configuration.addAllowedMethod("OPTIONS");
+    // configuration.setMaxAge(3600L);
+    // source.registerCorsConfiguration("/**", configuration);
+    // FilterRegistrationBean<Filter> bean = new FilterRegistrationBean<Filter>(new
+    // CorsFilter(source));
+    // bean.setOrder(-110);
 
-        return bean;
-    }
+    // return bean;
+    // }
 }

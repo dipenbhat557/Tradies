@@ -10,9 +10,9 @@ public class LocationDto {
 
     private int locationId;
 
-    private String longitude;
+    private double longitude;
 
-    private String latitude;
+    private double latitude;
 
     private List<String> userIds = new ArrayList<>();
 

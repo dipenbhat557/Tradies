@@ -223,6 +223,9 @@
 							</artifactId>
 						</exclude>
 					</excludes>
+					<mainClass>
+						com.tradiesKraken.TradiesKrakenApplication
+					</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
