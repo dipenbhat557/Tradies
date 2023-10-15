@@ -5,7 +5,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Register2() {
+export default function Register() {
   return (
     <Menu as="div" className="relative inline-block text-left ml-72">
       <div>
