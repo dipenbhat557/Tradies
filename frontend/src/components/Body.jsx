@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Login from "./Login.jsx";
-import Register from "./Register.jsx";
+import Login from "../Pages/Login.jsx";
+import Signup from "../Pages/Signup.jsx"
 import Home from "../Pages/Home.jsx";
 import Category from "../components/ServiceCategory.jsx"
 
@@ -15,13 +15,14 @@ function Body() {
       element: <Login />,
     },
     {
+      path: "/signup",
+      element: <Signup />,
+    },
+    {
       path:"/category",
       element:<Category/>
     },
-    {
-      path: "/register",
-      element: <Register />,
-    },
+   
   ]);
   return (
     <div>

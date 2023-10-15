@@ -4,8 +4,12 @@ import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import logo from "../constants/images/logo.png";
 
+import { useState } from "react";
+
 function Header() {
   //  const [isOpen, setIsOpen] = useState(false);
+  // const [loggedIn, setLoggedIn] = useState("null");
+  // const userLoggedIn = useSelector((store) => store.user.user);
   return (
     <div>
       <nav className="bg-gray-100   p-4">
@@ -30,27 +34,25 @@ function Header() {
                       Category
                     </h2>
                   </Link>
-
                   <Link to="/cart">
                     <h2 className="text-black-300  hover:bg-gray-500 hover:text-white px-3 py-3 ml-4  rounded-md text-lg font-medium ">
                       Cart
                     </h2>
                   </Link>
                   <section className="mx-8">
-                  <select className="py-5 px-16 border mx-8 rounded-lg ">
-                    <option className="p-20">Bangalore</option>
-                    <option>Chennai</option>
-                    <option>Delhi</option>
-                  </select>
+                    <select className="py-5 px-16 border mx-8 rounded-lg ">
+                      <option className="p-20">Bangalore</option>
+                      <option>Chennai</option>
+                      <option>Delhi</option>
+                    </select>
                   </section>
-
                   <SearchBar />
-
                   <Link to="/login">
                     <h2 className="text-black-300  hover:bg-gray-500 hover:text-white px-3 py-3 ml-12 rounded-md text-lg font-medium border">
                       Login/Signup
                     </h2>
                   </Link>
+                  
                 </div>
               </div>
             </div>

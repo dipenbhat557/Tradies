@@ -5,6 +5,7 @@ import logo from "../constants/images/logo.jpeg";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import LoginFooter from "../components/LoginFooter";
+import { signUpUser } from "../utils/auth";
 
 const SignupForm = () => {
   const [showLabel, setShowLabel] = useState(false);
@@ -44,8 +45,23 @@ const SignupForm = () => {
             }
             return errors;
           }}
-          onSubmit={(values, { setSubmitting }) => {
-            console.log("Form values:", values);
+          onSubmit={async (values, { setSubmitting }) => {
+            try {
+              const userData = await signUpUser(
+                values.name,
+                values.email,
+                values.password,
+
+                values.phone,
+                values.role,
+                values.aadharno,
+                values.pincode
+              );
+              console.log(userData);
+              
+            } catch (error) {
+              console.error("Authentication error: ", error);
+            }
             setSubmitting(false);
           }}
         >
