@@ -69,22 +69,7 @@ public class SecurityConfig {
                         .anyRequest().authenticated())
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .csrf(csrf -> csrf.disable())
-                .cors(cors -> cors.configurationSource(new CorsConfigurationSource() {
-                    @Override
-                    public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
-                        CorsConfiguration cfg = new CorsConfiguration();
-
-                        cfg.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
-                        cfg.setAllowedOriginPatterns(Arrays.asList("http://localhost:3000"));
-
-                        cfg.setAllowedMethods(Collections.singletonList("*"));
-                        cfg.setAllowedHeaders(Collections.singletonList("*"));
-                        cfg.setExposedHeaders(Arrays.asList("Authorization"));
-                        cfg.setMaxAge(3600L);
-
-                        return cfg;
-                    }
-                })).formLogin(Customizer.withDefaults()).httpBasic(Customizer.withDefaults());
+                .formLogin(Customizer.withDefaults()).httpBasic(Customizer.withDefaults());
 
         return http.build();
     }
