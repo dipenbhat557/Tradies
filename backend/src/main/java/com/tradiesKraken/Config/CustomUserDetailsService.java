@@ -19,7 +19,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = this.userRepository.findByEmail(email)
-                .orElseThrow(() -> new ResourceNotFoundException("The expected use ris not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("The expected user is not found"));
         System.out.println(user);
         return user;
     }

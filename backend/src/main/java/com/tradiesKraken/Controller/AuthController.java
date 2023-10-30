@@ -112,6 +112,8 @@ public class AuthController {
 
     @PostMapping("/signup")
     public ResponseEntity<UserDto> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
+        System.out.println(signUpRequest.getEmail());
+        System.out.println(signUpRequest.getPhone());
         if (userRepository.existsByEmail(signUpRequest.getEmail())) {
             throw new BadRequestException("Email address already in use.");
         }

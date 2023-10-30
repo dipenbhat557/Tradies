@@ -13,7 +13,7 @@ export const authenticateUser = async (email, password) => {
     });
     console.log(response);
     const { token, user } = response.data;
-    navigate("/");
+    // navigate("/");
     localStorage.setItem("token", token);
     return user;
   } catch (error) {
@@ -22,15 +22,17 @@ export const authenticateUser = async (email, password) => {
 };
 
 export const signUpUser = async (
+  name,
   email,
   password,
-  name,
-  pincode,
   phone,
   role,
-  aadharno
+  aadharno,
+  pincode
 ) => {
   try {
+    console.log("from sign up user func ", email, password, phone);
+    console.log(phone);
     const response = await axios.post(`${API_BASE_URL}/signup`, {
       name,
       email,
@@ -40,6 +42,7 @@ export const signUpUser = async (
       aadharno,
       pincode,
     });
+
     console.log(response);
     const { token, user } = response.data;
 

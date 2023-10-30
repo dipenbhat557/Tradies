@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
-import logo from "../constants/images/logo.jpeg";
-
+import { Link, useNavigate } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import LoginFooter from "../components/LoginFooter";
 import { signUpUser } from "../utils/auth";
+import logo from "../constants/images/logo.jpeg";
 
 const SignupForm = () => {
   const [showLabel, setShowLabel] = useState(false);
+  const navigate = useNavigate();
+
   return (
     <div>
       <Link to="/home">
@@ -18,12 +18,10 @@ const SignupForm = () => {
         <Formik
           initialValues={{
             name: "",
-
             pincode: "",
             phone: "",
             role: "",
             aadharno: "",
-
             email: "",
             password: "",
             confirmPassword: "",
@@ -47,18 +45,22 @@ const SignupForm = () => {
           }}
           onSubmit={async (values, { setSubmitting }) => {
             try {
-              const userData = await signUpUser(
-                values.name,
-                values.email,
-                values.password,
+              const { name, email, password, phone, role, aadharno, pincode } =
+                values;
+              console.log(values);
+              console.log(phone);
 
-                values.phone,
-                values.role,
-                values.aadharno,
-                values.pincode
+              const userData = await signUpUser(
+                name,
+                email,
+                password,
+                phone,
+                role,
+                aadharno,
+                pincode
               );
-              console.log(userData);
-              
+              navigate("/");
+              console.log("userData:", userData);
             } catch (error) {
               console.error("Authentication error: ", error);
             }
