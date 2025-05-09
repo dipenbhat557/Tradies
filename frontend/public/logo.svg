@@ -1,0 +1,18 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Toolbox shape -->
+  <rect x="10" y="15" width="60" height="40" rx="4" fill="#2563EB" />
+  <rect x="25" y="10" width="30" height="10" rx="2" fill="#2563EB" />
+  <rect x="15" y="35" width="50" height="2" fill="#FFFFFF" />
+  
+  <!-- Text "Tradies" -->
+  <path d="M90 25H86V21H102V25H98V43H94V25Z" fill="#111827"/>
+  <path d="M104 21H108V31H114V21H118V43H114V35H108V43H104V21Z" fill="#111827"/>
+  <path d="M120 25V21H134V25H130V43H126V25H120Z" fill="#111827"/>
+  <path d="M144 43H140V21H144V43Z" fill="#111827"/>
+  <path d="M147 21H152.48L156 30.92V21H160V43H155.68L151 30.56V43H147V21Z" fill="#111827"/>
+  <path d="M166 21H170V39H178V43H166V21Z" fill="#111827"/>
+  <path d="M180 27V21H195V27H191V43H187V27H180Z" fill="#2563EB"/>
+  
+  <!-- Wrench icon -->
+  <path d="M40 30C40 28.5 40.75 27 42 26C43.25 25 45 25 46.5 25.5C48 26 49 27 49.5 28.5C50 30 49.5 31.5 48.5 32.5L57 41L54.5 43.5L46 35C45 36 43.5 36.5 42 36C40.5 35.5 39.5 34.5 39 33C38.5 31.5 39 29.5 40 28L42.5 30.5L45 28L42.5 25.5C41 26.5 40 28 40 30Z" fill="#FFFFFF"/>
+</svg> 
