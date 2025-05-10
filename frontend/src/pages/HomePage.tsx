@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FaStar, FaSearch, FaArrowRight, FaHammer, FaTools, FaWrench, FaHome, FaShieldAlt, FaUserCog } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 
@@ -83,11 +83,14 @@ const testimonials = [
 
 const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState('')
+  const navigate = useNavigate()
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
-    // Add search functionality here
-    console.log('Searching for:', searchQuery)
+    if (searchQuery.trim()) {
+      // Navigate to services page with search query as URL parameter
+      navigate(`/services?search=${encodeURIComponent(searchQuery.trim())}`)
+    }
   }
 
   return (

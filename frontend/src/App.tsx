@@ -19,6 +19,15 @@ const Dashboard = lazy(() => import('./pages/Dashboard'))
 const ServiceDetailsPage = lazy(() => import('./pages/ServiceDetailsPage'))
 const ProviderProfilePage = lazy(() => import('./pages/ProviderProfilePage'))
 const BookingPage = lazy(() => import('./pages/BookingPage'))
+const ServicesPage = lazy(() => import('./pages/ServicesPage'))
+const HowItWorksPage = lazy(() => import('./pages/HowItWorksPage'))
+const AboutPage = lazy(() => import('./pages/AboutPage'))
+const ContactPage = lazy(() => import('./pages/ContactPage'))
+const PricingPage = lazy(() => import('./pages/PricingPage'))
+const FaqPage = lazy(() => import('./pages/FaqPage'))
+const TermsPage = lazy(() => import('./pages/TermsPage'))
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage'))
+const CookiesPage = lazy(() => import('./pages/CookiesPage'))
 
 // Loading fallback
 const LoadingFallback = () => (
@@ -44,10 +53,10 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
               
-              {/* Lazy-loaded routes */}
-              <Route path="/dashboard/*" element={
+              {/* Services routes */}
+              <Route path="/services" element={
                 <Suspense fallback={<LoadingFallback />}>
-                  <Dashboard />
+                  <ServicesPage />
                 </Suspense>
               } />
               <Route path="/services/:id" element={
@@ -55,6 +64,52 @@ function App() {
                   <ServiceDetailsPage />
                 </Suspense>
               } />
+              
+              {/* Informational pages */}
+              <Route path="/how-it-works" element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <HowItWorksPage />
+                </Suspense>
+              } />
+              <Route path="/about" element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <AboutPage />
+                </Suspense>
+              } />
+              <Route path="/contact" element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <ContactPage />
+                </Suspense>
+              } />
+              <Route path="/pricing" element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <PricingPage />
+                </Suspense>
+              } />
+              <Route path="/faq" element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <FaqPage />
+                </Suspense>
+              } />
+              
+              {/* Legal pages */}
+              <Route path="/terms" element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <TermsPage />
+                </Suspense>
+              } />
+              <Route path="/privacy" element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <PrivacyPage />
+                </Suspense>
+              } />
+              <Route path="/cookies" element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <CookiesPage />
+                </Suspense>
+              } />
+              
+              {/* Provider pages */}
               <Route path="/providers/:id" element={
                 <Suspense fallback={<LoadingFallback />}>
                   <ProviderProfilePage />
@@ -63,6 +118,13 @@ function App() {
               <Route path="/booking/:serviceId" element={
                 <Suspense fallback={<LoadingFallback />}>
                   <BookingPage />
+                </Suspense>
+              } />
+              
+              {/* Dashboard routes */}
+              <Route path="/dashboard/*" element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <Dashboard />
                 </Suspense>
               } />
               

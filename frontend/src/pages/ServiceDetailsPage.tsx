@@ -2,42 +2,114 @@ import { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { FaStar, FaRegStar, FaClock, FaMapMarkerAlt, FaUser, FaCalendarAlt } from 'react-icons/fa'
 
-// Mock data - this would come from an API in a real app
-const serviceData = {
-  id: '1',
-  name: 'Professional Plumbing Service',
-  description: 'Expert plumbing services for all your needs. We handle everything from small repairs to complete installation and renovation projects. Our team of licensed plumbers provides fast, reliable service at competitive rates.',
-  longDescription: 'We offer comprehensive plumbing services for residential and commercial properties. Our experienced team can handle a wide range of plumbing issues, including leak repairs, pipe installations, drain cleaning, water heater services, bathroom and kitchen renovations, and emergency plumbing. We pride ourselves on providing timely, professional service with transparent pricing and guaranteed workmanship.',
-  category: 'Plumbing',
-  price: 85,
-  priceUnit: 'hour',
-  rating: 4.8,
-  reviews: 124,
-  provider: {
-    id: 'p1',
-    name: 'John Smith',
-    image: 'https://randomuser.me/api/portraits/men/32.jpg',
-    rating: 4.9,
-    reviews: 212,
-    memberSince: 'January 2019',
-    completedJobs: 347
+// Mock services data - this would come from an API in a real app
+const servicesData = [
+  {
+    id: '1',
+    name: 'Professional Plumbing Service',
+    description: 'Expert plumbing services for all your needs. We handle everything from small repairs to complete installation and renovation projects. Our team of licensed plumbers provides fast, reliable service at competitive rates.',
+    longDescription: 'We offer comprehensive plumbing services for residential and commercial properties. Our experienced team can handle a wide range of plumbing issues, including leak repairs, pipe installations, drain cleaning, water heater services, bathroom and kitchen renovations, and emergency plumbing. We pride ourselves on providing timely, professional service with transparent pricing and guaranteed workmanship.',
+    category: 'Plumbing',
+    price: 85,
+    priceUnit: 'hour',
+    rating: 4.8,
+    reviews: 124,
+    provider: {
+      id: 'p1',
+      name: 'John Smith',
+      image: 'https://randomuser.me/api/portraits/men/32.jpg',
+      rating: 4.9,
+      reviews: 212,
+      memberSince: 'January 2019',
+      completedJobs: 347
+    },
+    images: [
+      'https://images.unsplash.com/photo-1606341518934-abe87f36668a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1574359411659-13c065443c9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1599236449650-f2a86b592422?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80'
+    ],
+    features: [
+      'Licensed & Insured Plumbers',
+      '24/7 Emergency Services',
+      'Free Estimates',
+      '90-Day Labor Warranty',
+      'Senior & Military Discounts',
+      'Transparent Pricing'
+    ],
+    areas: ['Downtown', 'North Side', 'South Side', 'East Side', 'West Side'],
+    availability: ['Weekdays', 'Weekends', 'Evenings']
   },
-  images: [
-    'https://images.unsplash.com/photo-1606341518934-abe87f36668a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1574359411659-13c065443c9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1599236449650-f2a86b592422?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80'
-  ],
-  features: [
-    'Licensed & Insured Plumbers',
-    '24/7 Emergency Services',
-    'Free Estimates',
-    '90-Day Labor Warranty',
-    'Senior & Military Discounts',
-    'Transparent Pricing'
-  ],
-  areas: ['Downtown', 'North Side', 'South Side', 'East Side', 'West Side'],
-  availability: ['Weekdays', 'Weekends', 'Evenings']
-}
+  {
+    id: '2',
+    name: 'Electrical Repairs',
+    description: 'Expert electrical repair and installation services for your home or business. Our licensed electricians can handle everything from minor repairs to complete rewiring.',
+    longDescription: 'Our electrical services cover all aspects of residential and commercial electrical work. From simple fixture installations to complex panel upgrades, our licensed and insured electricians deliver safe, code-compliant solutions. We specialize in troubleshooting electrical issues, installing lighting systems, upgrading outlets, and providing energy-efficient recommendations to reduce your utility bills.',
+    category: 'Electrical',
+    price: 75,
+    priceUnit: 'hour',
+    rating: 4.7,
+    reviews: 98,
+    provider: {
+      id: 'p2',
+      name: 'Sarah Johnson',
+      image: 'https://randomuser.me/api/portraits/women/44.jpg',
+      rating: 4.8,
+      reviews: 156,
+      memberSince: 'March 2020',
+      completedJobs: 210
+    },
+    images: [
+      'https://images.unsplash.com/photo-1565007880222-c989d4eae0ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1558424350-cbf42e5e124a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1596475380310-c8fdf3d54538?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+    ],
+    features: [
+      'Licensed & Insured Electricians',
+      'Same-Day Services',
+      'Free Consultations',
+      'Workmanship Guaranteed',
+      'Modern Equipment',
+      'Competitive Pricing'
+    ],
+    areas: ['Downtown', 'Suburbs', 'West End', 'East Side', 'Metropolitan Area'],
+    availability: ['Weekdays', 'Weekends', 'Emergency Services']
+  },
+  {
+    id: '3',
+    name: 'Custom Carpentry',
+    description: 'Professional custom carpentry services for all your woodworking needs. From custom furniture to built-ins and home renovations.',
+    longDescription: 'Our custom carpentry services transform your ideas into beautiful, functional pieces. We create custom furniture, built-in cabinetry, crown molding, wainscoting, decorative beams, and more. Each project is handled with precision craftsmanship and attention to detail, using quality materials that stand the test of time. Our experienced carpenters work closely with you to bring your vision to life.',
+    category: 'Carpentry',
+    price: 65,
+    priceUnit: 'hour',
+    rating: 4.9,
+    reviews: 138,
+    provider: {
+      id: 'p3',
+      name: 'Thomas Wright',
+      image: 'https://randomuser.me/api/portraits/men/32.jpg',
+      rating: 4.9,
+      reviews: 185,
+      memberSince: 'June 2018',
+      completedJobs: 275
+    },
+    images: [
+      'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1581539250439-c96689b516dd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+    ],
+    features: [
+      'Experienced Master Carpenters',
+      'Custom Designs',
+      'Premium Materials',
+      'Detailed Consultations',
+      'Project Timeline Guarantees',
+      'Craftsmanship Warranty'
+    ],
+    areas: ['City Center', 'Northern Suburbs', 'Southern District', 'Western Area', 'Eastern Neighborhoods'],
+    availability: ['Weekdays', 'By Appointment', 'Evenings']
+  }
+]
 
 // Sample review data
 const reviewsData = [
@@ -71,18 +143,33 @@ function ServiceDetailsPage() {
   const { id } = useParams()
   const navigate = useNavigate()
   const [selectedImage, setSelectedImage] = useState(0)
-  const [service, setService] = useState(serviceData)
+  const [service, setService] = useState<any>(null)
   const [reviews, setReviews] = useState(reviewsData)
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState('')
 
-  // In a real application, you would fetch the service data based on the ID
+  // In a real application, you would fetch the service data based on the ID from an API
   useEffect(() => {
     setIsLoading(true)
-    // This would be an API call in a real application
+    setError('')
+    
+    // Simulate API call with timeout
     setTimeout(() => {
-      setService(serviceData)
-      setReviews(reviewsData)
-      setIsLoading(false)
+      try {
+        // Find the service with the matching ID
+        const foundService = servicesData.find(s => s.id === id)
+        
+        if (foundService) {
+          setService(foundService)
+          setIsLoading(false)
+        } else {
+          setError('Service not found')
+          setIsLoading(false)
+        }
+      } catch (err) {
+        setError('Error loading service details')
+        setIsLoading(false)
+      }
     }, 500)
   }, [id])
 
@@ -90,6 +177,21 @@ function ServiceDetailsPage() {
     return (
       <div className="flex items-center justify-center min-h-[50vh]">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    )
+  }
+
+  if (error || !service) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-8 text-center">
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">{error || 'Service not found'}</h2>
+        <p className="text-gray-600 mb-6">The service you're looking for doesn't exist or may have been removed.</p>
+        <button
+          onClick={() => navigate('/services')}
+          className="bg-primary text-white py-2 px-6 rounded-md hover:bg-primary-600 transition"
+        >
+          Browse All Services
+        </button>
       </div>
     )
   }
@@ -119,7 +221,9 @@ function ServiceDetailsPage() {
       <div className="mb-4 text-sm">
         <Link to="/" className="text-gray-500 hover:text-blue-600">Home</Link>
         <span className="mx-2 text-gray-400">/</span>
-        <Link to="/" className="text-gray-500 hover:text-blue-600">{service.category}</Link>
+        <Link to="/services" className="text-gray-500 hover:text-blue-600">Services</Link>
+        <span className="mx-2 text-gray-400">/</span>
+        <Link to={`/services?category=${service.category.toLowerCase()}`} className="text-gray-500 hover:text-blue-600">{service.category}</Link>
         <span className="mx-2 text-gray-400">/</span>
         <span className="text-gray-700">{service.name}</span>
       </div>
@@ -136,7 +240,7 @@ function ServiceDetailsPage() {
             />
           </div>
           <div className="flex space-x-2 overflow-x-auto">
-            {service.images.map((image, index) => (
+            {service.images.map((image: string, index: number) => (
               <div 
                 key={index}
                 className={`cursor-pointer w-24 h-24 rounded-md overflow-hidden border-2 ${
@@ -202,7 +306,7 @@ function ServiceDetailsPage() {
           <div className="mt-6">
             <h3 className="font-semibold text-gray-800 mb-2">Service includes:</h3>
             <ul className="text-gray-600">
-              {service.features.slice(0, 3).map((feature, index) => (
+              {service.features.slice(0, 3).map((feature: string, index: number) => (
                 <li key={index} className="flex items-start mb-1">
                   <span className="text-green-500 mr-2">✓</span> {feature}
                 </li>
@@ -224,7 +328,7 @@ function ServiceDetailsPage() {
             {/* Features */}
             <h3 className="font-bold text-gray-800 mb-2 mt-6">Features</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-              {service.features.map((feature, index) => (
+              {service.features.map((feature: string, index: number) => (
                 <div key={index} className="flex items-start">
                   <span className="text-green-500 mr-2">✓</span>
                   <span className="text-gray-700">{feature}</span>
@@ -287,7 +391,7 @@ function ServiceDetailsPage() {
           <div className="bg-white p-6 rounded-lg shadow-md mb-6">
             <h3 className="font-bold text-gray-800 mb-3">Availability</h3>
             <div className="space-y-2">
-              {service.availability.map((time, index) => (
+              {service.availability.map((time: string, index: number) => (
                 <div key={index} className="flex items-center">
                   <FaClock className="text-gray-500 mr-2" />
                   <span className="text-gray-700">{time}</span>
@@ -300,7 +404,7 @@ function ServiceDetailsPage() {
           <div className="bg-white p-6 rounded-lg shadow-md mb-6">
             <h3 className="font-bold text-gray-800 mb-3">Service Areas</h3>
             <div className="space-y-2">
-              {service.areas.map((area, index) => (
+              {service.areas.map((area: string, index: number) => (
                 <div key={index} className="flex items-center">
                   <FaMapMarkerAlt className="text-gray-500 mr-2" />
                   <span className="text-gray-700">{area}</span>
